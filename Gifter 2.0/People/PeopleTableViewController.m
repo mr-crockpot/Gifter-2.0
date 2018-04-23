@@ -60,16 +60,11 @@
     
     _arrPeople = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:queryPeople]];
     _arrGroups = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:queryGroups]];
- 
+  // NSLog(@"On loading, the people array is %@",_arrPeople);
   
-//    _arrPeople = [[NSMutableArray alloc] initWithArray:_arrPeople];
     [_tblViewPeople reloadData];
     
 }
-
-
-
-
 
 -(void)addPeople{
     
@@ -102,8 +97,12 @@
     NSString *sectionTitle;
     
     sectionTitle = _arrGroups[section][1];
+    tableView.layer.backgroundColor = [[UIColor greenColor] CGColor];
+    
     return sectionTitle;
+    
 }
+
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -113,9 +112,10 @@
     NSString *firstName;
     NSString *lastName;
     NSString *formattedName;
-    // NSLog(@"TEST");
-    // NSLog(@"arrpeople count is %li", _arrPeople.count);
+  
+    
     for (int i = 0; i<_arrPeople.count; i++){
+        
         if ([_arrPeople[i][4] integerValue] -1 == indexPath.section){
             firstName = _arrPeople[i][1];
             lastName = _arrPeople[i][2];
@@ -126,7 +126,7 @@
             [tempIndex addObject:@(indexPath.row)];
             [_arrIndexOfPeopleIDs addObject:tempIndex];
             [_arrPeople removeObjectAtIndex:i];
-            NSLog(@"%@", _arrPeople);
+          
             break;
         }
 
@@ -165,22 +165,21 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-      //  _activePerson = [_generalMethods findActivePerson:indexPath.section row:indexPath.row array:_arrIndexOfPeopleIDs];
-        
         for (int x = 0; x<_arrIndexOfPeopleIDs.count; x++) {
             
             if ([_arrIndexOfPeopleIDs[x][1] integerValue] == indexPath.section && [_arrIndexOfPeopleIDs[x][2] integerValue] == indexPath.row) {
                 _activePerson = [_arrIndexOfPeopleIDs[x][0] integerValue];
             }
         }
-     //   [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+     // [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
        
-        NSString *queryDeletePerson = [NSString stringWithFormat:@"DELETE FROM people WHERE people.peopleID = %li;DELETE FROM peopleEvents WHERE peopleEvents.peopleID = %li; DELETE FROM peopleGifts WHERE peopleGifts.peopleID = %li; DELETE FROM peopleGroups WHERE peopleGroups.peopleID = %li;",_activePerson,_activePerson,_activePerson,_activePerson];
-        NSLog(queryDeletePerson);
-       
-        [_dbManager executeQuery:queryDeletePerson];
+      // NSString *queryDeletePerson = [NSString stringWithFormat:@"DELETE FROM people WHERE people.peopleID = %li;DELETE FROM peopleEvents WHERE peopleEvents.peopleID = %li; DELETE FROM peopleGifts WHERE peopleGifts.peopleID = %li; DELETE FROM peopleGroups WHERE peopleGroups.peopleID = %li;",_activePerson,_activePerson,_activePerson,_activePerson];
         
-        [self loadData];
+       NSString *queryDeletePerson = [NSString stringWithFormat:@"DELETE FROM peopleGroups WHERE peopleGroups.peopleID = %li",_activePerson];
+    
+       [_dbManager executeQuery:queryDeletePerson];
+      
+    [self loadData];
      
         
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
@@ -233,5 +232,8 @@
         peopleDetailVC.activePerson = _activePerson;
     }
 }
+
+
+
 
 @end

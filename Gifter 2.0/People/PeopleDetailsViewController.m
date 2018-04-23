@@ -63,19 +63,29 @@
     } else { // _activePerson is -1, which means we're adding a new person
         if (_txtFieldLastName.text != nil || _txtFieldFirstName !=nil) {
             querySave = [NSString stringWithFormat:@"INSERT INTO people (peopleID,firstname,lastname) VALUES (null, '%@', '%@')", _txtFieldFirstName.text, _txtFieldLastName.text];
+            
             //Find new active person value
             queryFindMax = @"select max(people.peopleID) from people";
             arrMaxPeopleID = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:queryFindMax]];
            
             maxPeopleID = [arrMaxPeopleID[0][0] integerValue] + 1;
-            
             querySaveGroup = [NSString stringWithFormat:@"INSERT INTO peopleGroups VALUES (null,%li,1)",maxPeopleID];
-           
-        }
+           }
     }
     
     [_dbManager executeQuery:querySave];
     [_dbManager executeQuery:querySaveGroup];
     
+#pragma mark TEST AREA
+   /* NSString *testQuery = @"SELECT * FROM people";
+    NSMutableArray *testArray = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:testQuery]];
+    NSLog(@"The people array is now %@",testArray);
+    NSString *testQueryGroup = @"SELECT * FROM peopleGroups";
+    NSMutableArray *testArrayGroup = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:testQueryGroup]];
+    NSLog(@"The group array is now %@",testArrayGroup);
+    */
+    
+    
+#pragma mark END TEST AREA
  }
 @end
