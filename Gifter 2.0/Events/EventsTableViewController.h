@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DBManager.h"
 
 @interface EventsTableViewController : UITableViewController
+
+@property (strong, nonatomic) DBManager *dbManager;
+
+@property (strong, nonatomic) NSMutableArray *arrEvents;
+@property NSInteger eventID;
+
 
 @end

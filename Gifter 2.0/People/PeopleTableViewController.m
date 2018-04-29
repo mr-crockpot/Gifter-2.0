@@ -41,7 +41,7 @@
     UIBarButtonItem *editButton          = [[UIBarButtonItem alloc]
                                             initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
                                             target:self
-                                            action:@selector(toggleEditing)];
+                                            action:@selector(toggleEditPeople)];
     
     self.parentViewController.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:addButton,editButton, nil];
     
@@ -60,14 +60,14 @@
     
     _arrPeople = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:queryPeople]];
     _arrGroups = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:queryGroups]];
-  // NSLog(@"On loading, the people array is %@",_arrPeople);
+    NSLog(@"BACK"  );
   
     [_tblViewPeople reloadData];
-    
+
 }
 
 -(void)addPeople{
-    
+
     _activePerson = -1;
   [self performSegueWithIdentifier:@"seguePeopleTableToPeopleDetails" sender:self];
     
@@ -93,14 +93,31 @@
 }
 
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+/*-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     NSString *sectionTitle;
     
     sectionTitle = _arrGroups[section][1];
-    tableView.layer.backgroundColor = [[UIColor greenColor] CGColor];
+   
+    
+  //  tableView.layer.backgroundColor = [[UIColor greenColor] CGColor];
     
     return sectionTitle;
+
+
+}*/
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    NSInteger width = self.view.frame.size.width;
+    UILabel *sectionLabel  = [[UILabel alloc] init];
+    sectionLabel.frame = CGRectMake(0, 0, width, 30);
+    sectionLabel.backgroundColor = [UIColor clearColor];
+    sectionLabel.font = [UIFont fontWithName:@"Courier" size:20];
+    sectionLabel.textAlignment = NSTextAlignmentCenter;
+    sectionLabel.textColor = [UIColor blueColor];
+    sectionLabel.text = _arrGroups[section][1];
+    UIView *headerView = [[UIView alloc] init];
+    [headerView addSubview:sectionLabel];
     
+    return headerView;
 }
 
 
@@ -217,7 +234,7 @@
     // Return NO if you do not want the item to be re-orderable.
     return YES;
 }
--(void)toggleEditing{
+-(void)toggleEditPeople{
     _editable = ! _editable;
     [self setEditing:_editable animated:YES];
 }

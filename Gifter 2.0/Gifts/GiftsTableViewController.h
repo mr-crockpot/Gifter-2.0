@@ -7,7 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DBManager.h"
 
-@interface GiftsTableViewController : UITableViewController
+
+@interface GiftsTableViewController : UITableViewController <UITableViewDelegate,UITableViewDataSource>
+
+@property (nonatomic, strong) DBManager *dbManager;
+
+@property (nonatomic, strong) NSMutableArray *arrGifts;
+@property (nonatomic, strong)  NSMutableArray *arrIndexOfGiftsIDs;
+
+@property NSInteger giftID;
+
+@property BOOL editable;
+@property (strong, nonatomic) IBOutlet UITableView *tblViewGifts;
+
+
+
+
+
+
 
 @end

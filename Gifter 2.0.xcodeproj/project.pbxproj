@@ -10,6 +10,7 @@
 		E33FA4F0208D5414001DA6B2 /* gifterDB.db in Resources */ = {isa = PBXBuildFile; fileRef = E33FA4EF208D5414001DA6B2 /* gifterDB.db */; };
 		E33FA4F1208D5414001DA6B2 /* gifterDB.db in Resources */ = {isa = PBXBuildFile; fileRef = E33FA4EF208D5414001DA6B2 /* gifterDB.db */; };
 		E33FA4F2208D5414001DA6B2 /* gifterDB.db in Resources */ = {isa = PBXBuildFile; fileRef = E33FA4EF208D5414001DA6B2 /* gifterDB.db */; };
+		E33FA4F5208D825A001DA6B2 /* GiftsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FA4F4208D825A001DA6B2 /* GiftsDetailsViewController.m */; };
 		E373830B2065EDA5004263CD /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E373830A2065EDA5004263CD /* libsqlite3.tbd */; };
 		E373831820669CD7004263CD /* PeopleDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E373831720669CD7004263CD /* PeopleDetailsViewController.m */; };
 		E373831920669CD7004263CD /* PeopleDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E373831720669CD7004263CD /* PeopleDetailsViewController.m */; };
@@ -51,6 +52,8 @@
 
 /* Begin PBXFileReference section */
 		E33FA4EF208D5414001DA6B2 /* gifterDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = gifterDB.db; sourceTree = "<group>"; };
+		E33FA4F3208D825A001DA6B2 /* GiftsDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftsDetailsViewController.h; sourceTree = "<group>"; };
+		E33FA4F4208D825A001DA6B2 /* GiftsDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftsDetailsViewController.m; sourceTree = "<group>"; };
 		E373830A2065EDA5004263CD /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		E373831620669CD7004263CD /* PeopleDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeopleDetailsViewController.h; sourceTree = "<group>"; };
 		E373831720669CD7004263CD /* PeopleDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeopleDetailsViewController.m; sourceTree = "<group>"; };
@@ -110,6 +113,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E33FA4F8208D827A001DA6B2 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				E38CD0C02064B19700CB74CD /* EventsTableViewController.h */,
+				E38CD0C12064B19700CB74CD /* EventsTableViewController.m */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		E33FA4F9209052C7001DA6B2 /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				E38CD0C32064B1A800CB74CD /* GroupsTableViewController.h */,
+				E38CD0C42064B1A800CB74CD /* GroupsTableViewController.m */,
+			);
+			path = Groups;
+			sourceTree = "<group>";
+		};
 		E37383092065EDA4004263CD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +166,8 @@
 			children = (
 				E38CD0BD2064B18A00CB74CD /* GiftsTableViewController.h */,
 				E38CD0BE2064B18A00CB74CD /* GiftsTableViewController.m */,
+				E33FA4F3208D825A001DA6B2 /* GiftsDetailsViewController.h */,
+				E33FA4F4208D825A001DA6B2 /* GiftsDetailsViewController.m */,
 			);
 			path = Gifts;
 			sourceTree = "<group>";
@@ -180,10 +203,8 @@
 				E38CD0A420647AEB00CB74CD /* MainViewController.m */,
 				E373831520669B45004263CD /* People */,
 				E3738330206F368B004263CD /* Gifts */,
-				E38CD0C02064B19700CB74CD /* EventsTableViewController.h */,
-				E38CD0C12064B19700CB74CD /* EventsTableViewController.m */,
-				E38CD0C32064B1A800CB74CD /* GroupsTableViewController.h */,
-				E38CD0C42064B1A800CB74CD /* GroupsTableViewController.m */,
+				E33FA4F8208D827A001DA6B2 /* Events */,
+				E33FA4F9209052C7001DA6B2 /* Groups */,
 				E38CD0712064783D00CB74CD /* AppDelegate.h */,
 				E38CD0722064783D00CB74CD /* AppDelegate.m */,
 				E38CD07A2064783D00CB74CD /* Assets.xcassets */,
@@ -351,6 +372,7 @@
 				E38CD0C22064B19700CB74CD /* EventsTableViewController.m in Sources */,
 				E38CD0812064783E00CB74CD /* main.m in Sources */,
 				E38CD0BC2064B12000CB74CD /* PeopleTableViewController.m in Sources */,
+				E33FA4F5208D825A001DA6B2 /* GiftsDetailsViewController.m in Sources */,
 				E38CD0A520647AEB00CB74CD /* MainViewController.m in Sources */,
 				E38CD0BF2064B18A00CB74CD /* GiftsTableViewController.m in Sources */,
 				E3738333206F36FA004263CD /* GeneralMethods.m in Sources */,

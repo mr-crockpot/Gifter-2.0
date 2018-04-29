@@ -43,7 +43,6 @@
     if (_activePerson != -1) {
 
     queryPerson = [NSString stringWithFormat:@"Select * from people where peopleID = %li",_activePerson];
-    
     _arrPeopleDetails = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:queryPerson]];
     _txtFieldFirstName.text = _arrPeopleDetails[0][1];
     _txtFieldLastName.text = _arrPeopleDetails [0][2];
