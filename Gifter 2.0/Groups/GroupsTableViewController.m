@@ -15,13 +15,36 @@
 @implementation GroupsTableViewController
 
 - (void)viewDidLoad {
+    
+    _dbManager = [[DBManager alloc] initWithDatabaseFilename:@"gifterDB.db"];
     [super viewDidLoad];
+    
+   [self loadData];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+   [self.parentViewController.navigationItem setTitle:@"Groups"];
+    
+    
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
+                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                  target:self
+                                  action:@selector(addGroup)];
+    
+    UIBarButtonItem *editButton          = [[UIBarButtonItem alloc]
+                                            initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
+                                            target:self
+                                            action:@selector(toggleEditGroups)];
+    
+    self.parentViewController.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:addButton,editButton, nil];
+   
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,25 +55,38 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+
+    return _arrayGroups.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cells" forIndexPath:indexPath];
     
-    // Configure the cell...
+    NSString *title;
+    title = _arrayGroups[indexPath.row][1];
+    cell.textLabel.text = title;
     
     return cell;
 }
-*/
 
+-(void)loadData {
+    
+    NSString *queryLoadGroups = @"SELECT * FROM groups";
+    _arrayGroups = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:queryLoadGroups]];
+    
+}
+
+
+
+-(void)addGroup{
+    NSLog(@"Add Group Here");
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -59,17 +95,30 @@
 }
 */
 
-/*
-// Override to support editing the table view.
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        NSString *queryDeleteGroup = @" ";
+        NSString *quearyDeletePeopleGroup = @" ";
+        NSLog( @"The row deleted is %li and the group is %@",indexPath.row,_arrayGroups[indexPath.row][1]);
+        
+        //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
+
+-(void)toggleEditGroups {
+    _editable = !_editable;
+    [self setEditing:_editable animated:YES];
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    
+    [super setEditing:editing animated:animated];
+}
 
 /*
 // Override to support rearranging the table view.

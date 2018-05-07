@@ -110,6 +110,8 @@
     UILabel *sectionLabel  = [[UILabel alloc] init];
     sectionLabel.frame = CGRectMake(0, 0, width, 30);
     sectionLabel.backgroundColor = [UIColor clearColor];
+    sectionLabel.layer.borderColor = [[UIColor blueColor] CGColor];
+    sectionLabel.layer.borderWidth = 2;
     sectionLabel.font = [UIFont fontWithName:@"Courier" size:20];
     sectionLabel.textAlignment = NSTextAlignmentCenter;
     sectionLabel.textColor = [UIColor blueColor];

@@ -16,5 +16,8 @@
 @property (strong, nonatomic) NSMutableArray *arrEvents;
 @property NSInteger eventID;
 
+@property (strong, nonatomic) IBOutlet UITableView *tblViewEvents;
+
+@property BOOL editable;
 
 @end

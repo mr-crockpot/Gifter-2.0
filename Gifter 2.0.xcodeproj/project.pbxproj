@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E33FA4F0208D5414001DA6B2 /* gifterDB.db in Resources */ = {isa = PBXBuildFile; fileRef = E33FA4EF208D5414001DA6B2 /* gifterDB.db */; };
-		E33FA4F1208D5414001DA6B2 /* gifterDB.db in Resources */ = {isa = PBXBuildFile; fileRef = E33FA4EF208D5414001DA6B2 /* gifterDB.db */; };
-		E33FA4F2208D5414001DA6B2 /* gifterDB.db in Resources */ = {isa = PBXBuildFile; fileRef = E33FA4EF208D5414001DA6B2 /* gifterDB.db */; };
 		E33FA4F5208D825A001DA6B2 /* GiftsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FA4F4208D825A001DA6B2 /* GiftsDetailsViewController.m */; };
+		E33FA4FC20961C9A001DA6B2 /* EventsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FA4FB20961C9A001DA6B2 /* EventsDetailsViewController.m */; };
+		E33FA504209E42E7001DA6B2 /* gifterDB.db in Resources */ = {isa = PBXBuildFile; fileRef = E33FA503209E42E6001DA6B2 /* gifterDB.db */; };
+		E33FA505209E42E7001DA6B2 /* gifterDB.db in Resources */ = {isa = PBXBuildFile; fileRef = E33FA503209E42E6001DA6B2 /* gifterDB.db */; };
+		E33FA506209E42E7001DA6B2 /* gifterDB.db in Resources */ = {isa = PBXBuildFile; fileRef = E33FA503209E42E6001DA6B2 /* gifterDB.db */; };
 		E373830B2065EDA5004263CD /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E373830A2065EDA5004263CD /* libsqlite3.tbd */; };
 		E373831820669CD7004263CD /* PeopleDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E373831720669CD7004263CD /* PeopleDetailsViewController.m */; };
 		E373831920669CD7004263CD /* PeopleDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E373831720669CD7004263CD /* PeopleDetailsViewController.m */; };
@@ -51,9 +52,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E33FA4EF208D5414001DA6B2 /* gifterDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = gifterDB.db; sourceTree = "<group>"; };
 		E33FA4F3208D825A001DA6B2 /* GiftsDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftsDetailsViewController.h; sourceTree = "<group>"; };
 		E33FA4F4208D825A001DA6B2 /* GiftsDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftsDetailsViewController.m; sourceTree = "<group>"; };
+		E33FA4FA20961C9A001DA6B2 /* EventsDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventsDetailsViewController.h; sourceTree = "<group>"; };
+		E33FA4FB20961C9A001DA6B2 /* EventsDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventsDetailsViewController.m; sourceTree = "<group>"; };
+		E33FA503209E42E6001DA6B2 /* gifterDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = gifterDB.db; sourceTree = "<group>"; };
 		E373830A2065EDA5004263CD /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		E373831620669CD7004263CD /* PeopleDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeopleDetailsViewController.h; sourceTree = "<group>"; };
 		E373831720669CD7004263CD /* PeopleDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeopleDetailsViewController.m; sourceTree = "<group>"; };
@@ -118,6 +121,8 @@
 			children = (
 				E38CD0C02064B19700CB74CD /* EventsTableViewController.h */,
 				E38CD0C12064B19700CB74CD /* EventsTableViewController.m */,
+				E33FA4FA20961C9A001DA6B2 /* EventsDetailsViewController.h */,
+				E33FA4FB20961C9A001DA6B2 /* EventsDetailsViewController.m */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -179,7 +184,7 @@
 				E38CD0892064783E00CB74CD /* Gifter 2.0Tests */,
 				E38CD0942064783E00CB74CD /* Gifter 2.0UITests */,
 				E38CD06F2064783D00CB74CD /* Products */,
-				E33FA4EF208D5414001DA6B2 /* gifterDB.db */,
+				E33FA503209E42E6001DA6B2 /* gifterDB.db */,
 				E37383092065EDA4004263CD /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -295,7 +300,7 @@
 		E38CD0662064783D00CB74CD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "AandA Development";
 				TargetAttributes = {
 					E38CD06D2064783D00CB74CD = {
@@ -341,7 +346,7 @@
 			files = (
 				E38CD07E2064783D00CB74CD /* LaunchScreen.storyboard in Resources */,
 				E38CD07B2064783D00CB74CD /* Assets.xcassets in Resources */,
-				E33FA4F0208D5414001DA6B2 /* gifterDB.db in Resources */,
+				E33FA504209E42E7001DA6B2 /* gifterDB.db in Resources */,
 				E38CD0792064783D00CB74CD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,7 +355,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E33FA4F1208D5414001DA6B2 /* gifterDB.db in Resources */,
+				E33FA505209E42E7001DA6B2 /* gifterDB.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,7 +363,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E33FA4F2208D5414001DA6B2 /* gifterDB.db in Resources */,
+				E33FA506209E42E7001DA6B2 /* gifterDB.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +384,7 @@
 				E38CD0C52064B1A800CB74CD /* GroupsTableViewController.m in Sources */,
 				E38CD0732064783D00CB74CD /* AppDelegate.m in Sources */,
 				E373831820669CD7004263CD /* PeopleDetailsViewController.m in Sources */,
+				E33FA4FC20961C9A001DA6B2 /* EventsDetailsViewController.m in Sources */,
 				E38CD0B92064A65500CB74CD /* DBManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,6 +458,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -459,6 +466,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -507,6 +515,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -514,6 +523,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "DBManager.h"
 @interface GroupsTableViewController : UITableViewController
 
+@property (strong,nonatomic) DBManager *dbManager;
+
+@property (strong, nonatomic) NSMutableArray *arrayGroups;
+
+@property NSInteger groupID;
+
+@property BOOL editable;
 @end
