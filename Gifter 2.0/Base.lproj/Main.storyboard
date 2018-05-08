@@ -287,6 +287,40 @@
             </objects>
             <point key="canvasLocation" x="1618.4000000000001" y="1626.8365817091455"/>
         </scene>
+        <!--Group Details View Controller-->
+        <scene sceneID="tXA-x5-PXO">
+            <objects>
+                <viewController id="cKf-2O-eq3" customClass="GroupDetailsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wHD-pV-CNG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Group Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRy-Hn-4VV">
+                                <rect key="frame" x="153" y="538" width="104" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tnz-qC-ueI">
+                                <rect key="frame" x="97" y="163" width="178" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="R57-vz-gIe"/>
+                    </view>
+                    <connections>
+                        <outlet property="txtFieldGroupName" destination="tnz-qC-ueI" id="1EH-F2-y9j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="STf-cX-94b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2284" y="1626.8365817091455"/>
+        </scene>
         <!--Gifts-->
         <scene sceneID="dKm-5j-hYq">
             <objects>
@@ -409,6 +443,10 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Groups" id="6QK-qt-iqj"/>
+                    <connections>
+                        <outlet property="tblViewGroups" destination="7o1-fb-8uL" id="M5h-mM-oz8"/>
+                        <segue destination="cKf-2O-eq3" kind="show" identifier="segueGroupsTableToGroupDetails" id="VKC-xC-dae"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PZg-Zs-CON" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

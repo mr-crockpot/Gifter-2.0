@@ -44,6 +44,9 @@
                                             action:@selector(toggleEditGroups)];
     
     self.parentViewController.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:addButton,editButton, nil];
+    
+    [self loadData];
+    
    
 }
 
@@ -80,12 +83,15 @@
     NSString *queryLoadGroups = @"SELECT * FROM groups";
     _arrayGroups = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:queryLoadGroups]];
     
+    NSLog(@"The array groups is %@",_arrayGroups);
+    [_tblViewGroups reloadData];
+    
 }
 
 
 
 -(void)addGroup{
-    NSLog(@"Add Group Here");
+    [self performSegueWithIdentifier:@"segueGroupsTableToGroupDetails" sender:self];
 }
 /*
 // Override to support conditional editing of the table view.
@@ -99,14 +105,24 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        NSString *queryDeleteGroup = @" ";
-        NSString *quearyDeletePeopleGroup = @" ";
-        NSLog( @"The row deleted is %li and the group is %@",indexPath.row,_arrayGroups[indexPath.row][1]);
+        NSInteger selectedGroupID = [_arrayGroups[indexPath.row][0]integerValue];
+        NSString *queryDeleteGroup =[NSString stringWithFormat:@"delete from groups where groups.groupID = %li",selectedGroupID];
+        NSString *quearyDeletePeopleGroup = [NSString stringWithFormat:@"update peopleGroups set groupID = 1 where peopleGroups.groupID = %li",selectedGroupID];
+        
+        
+        [_dbManager executeQuery:queryDeleteGroup];
+        [_dbManager executeQuery:quearyDeletePeopleGroup];
+        
+     //   NSLog( @"The row deleted is %li and the group is %@",indexPath.row,_arrayGroups[indexPath.row][1]);
         
         //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
+    
+    [self loadData];
+    [_tblViewGroups reloadData];
+
 }
 
 

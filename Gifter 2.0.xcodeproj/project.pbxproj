@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		E33FA4F5208D825A001DA6B2 /* GiftsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FA4F4208D825A001DA6B2 /* GiftsDetailsViewController.m */; };
 		E33FA4FC20961C9A001DA6B2 /* EventsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E33FA4FB20961C9A001DA6B2 /* EventsDetailsViewController.m */; };
-		E33FA504209E42E7001DA6B2 /* gifterDB.db in Resources */ = {isa = PBXBuildFile; fileRef = E33FA503209E42E6001DA6B2 /* gifterDB.db */; };
-		E33FA505209E42E7001DA6B2 /* gifterDB.db in Resources */ = {isa = PBXBuildFile; fileRef = E33FA503209E42E6001DA6B2 /* gifterDB.db */; };
-		E33FA506209E42E7001DA6B2 /* gifterDB.db in Resources */ = {isa = PBXBuildFile; fileRef = E33FA503209E42E6001DA6B2 /* gifterDB.db */; };
 		E373830B2065EDA5004263CD /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E373830A2065EDA5004263CD /* libsqlite3.tbd */; };
 		E373831820669CD7004263CD /* PeopleDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E373831720669CD7004263CD /* PeopleDetailsViewController.m */; };
 		E373831920669CD7004263CD /* PeopleDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E373831720669CD7004263CD /* PeopleDetailsViewController.m */; };
@@ -32,6 +29,10 @@
 		E38CD0BF2064B18A00CB74CD /* GiftsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38CD0BE2064B18A00CB74CD /* GiftsTableViewController.m */; };
 		E38CD0C22064B19700CB74CD /* EventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38CD0C12064B19700CB74CD /* EventsTableViewController.m */; };
 		E38CD0C52064B1A800CB74CD /* GroupsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E38CD0C42064B1A800CB74CD /* GroupsTableViewController.m */; };
+		E3E2015B20A10FBB000444AD /* GroupDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E2015A20A10FBB000444AD /* GroupDetailsViewController.m */; };
+		E3E2016120A23B9F000444AD /* gifterDB.db in Resources */ = {isa = PBXBuildFile; fileRef = E3E2016020A23B9E000444AD /* gifterDB.db */; };
+		E3E2016220A23B9F000444AD /* gifterDB.db in Resources */ = {isa = PBXBuildFile; fileRef = E3E2016020A23B9E000444AD /* gifterDB.db */; };
+		E3E2016320A23B9F000444AD /* gifterDB.db in Resources */ = {isa = PBXBuildFile; fileRef = E3E2016020A23B9E000444AD /* gifterDB.db */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +57,6 @@
 		E33FA4F4208D825A001DA6B2 /* GiftsDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftsDetailsViewController.m; sourceTree = "<group>"; };
 		E33FA4FA20961C9A001DA6B2 /* EventsDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventsDetailsViewController.h; sourceTree = "<group>"; };
 		E33FA4FB20961C9A001DA6B2 /* EventsDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventsDetailsViewController.m; sourceTree = "<group>"; };
-		E33FA503209E42E6001DA6B2 /* gifterDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = gifterDB.db; sourceTree = "<group>"; };
 		E373830A2065EDA5004263CD /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		E373831620669CD7004263CD /* PeopleDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeopleDetailsViewController.h; sourceTree = "<group>"; };
 		E373831720669CD7004263CD /* PeopleDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeopleDetailsViewController.m; sourceTree = "<group>"; };
@@ -88,6 +88,9 @@
 		E38CD0C12064B19700CB74CD /* EventsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventsTableViewController.m; sourceTree = "<group>"; };
 		E38CD0C32064B1A800CB74CD /* GroupsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupsTableViewController.h; sourceTree = "<group>"; };
 		E38CD0C42064B1A800CB74CD /* GroupsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupsTableViewController.m; sourceTree = "<group>"; };
+		E3E2015920A10FBB000444AD /* GroupDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupDetailsViewController.h; sourceTree = "<group>"; };
+		E3E2015A20A10FBB000444AD /* GroupDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupDetailsViewController.m; sourceTree = "<group>"; };
+		E3E2016020A23B9E000444AD /* gifterDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = gifterDB.db; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +135,8 @@
 			children = (
 				E38CD0C32064B1A800CB74CD /* GroupsTableViewController.h */,
 				E38CD0C42064B1A800CB74CD /* GroupsTableViewController.m */,
+				E3E2015920A10FBB000444AD /* GroupDetailsViewController.h */,
+				E3E2015A20A10FBB000444AD /* GroupDetailsViewController.m */,
 			);
 			path = Groups;
 			sourceTree = "<group>";
@@ -184,7 +189,7 @@
 				E38CD0892064783E00CB74CD /* Gifter 2.0Tests */,
 				E38CD0942064783E00CB74CD /* Gifter 2.0UITests */,
 				E38CD06F2064783D00CB74CD /* Products */,
-				E33FA503209E42E6001DA6B2 /* gifterDB.db */,
+				E3E2016020A23B9E000444AD /* gifterDB.db */,
 				E37383092065EDA4004263CD /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -346,7 +351,7 @@
 			files = (
 				E38CD07E2064783D00CB74CD /* LaunchScreen.storyboard in Resources */,
 				E38CD07B2064783D00CB74CD /* Assets.xcassets in Resources */,
-				E33FA504209E42E7001DA6B2 /* gifterDB.db in Resources */,
+				E3E2016120A23B9F000444AD /* gifterDB.db in Resources */,
 				E38CD0792064783D00CB74CD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,7 +360,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E33FA505209E42E7001DA6B2 /* gifterDB.db in Resources */,
+				E3E2016220A23B9F000444AD /* gifterDB.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,7 +368,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E33FA506209E42E7001DA6B2 /* gifterDB.db in Resources */,
+				E3E2016320A23B9F000444AD /* gifterDB.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3E2015B20A10FBB000444AD /* GroupDetailsViewController.m in Sources */,
 				E38CD0C22064B19700CB74CD /* EventsTableViewController.m in Sources */,
 				E38CD0812064783E00CB74CD /* main.m in Sources */,
 				E38CD0BC2064B12000CB74CD /* PeopleTableViewController.m in Sources */,

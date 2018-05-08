@@ -55,12 +55,12 @@
 }
 
 -(void)loadData {
-    NSString *queryPeople = @"Select people.peopleID, ifnull(people.firstname,-1), ifnull (people.lastname,-1), ifnull(groups.groupname,-1), ifnull(groups.groupID,-1) from people,  peopleGroups, groups  where people.peopleID = peopleGroups.peopleID and groups.groupID = peopleGroups.groupID  order by people.lastname asc";
+    NSString *queryPeople = @"Select people.peopleID, ifnull(people.firstname,-1), ifnull (people.lastname,-1), ifnull(groups.groupname,-1), ifnull(groups.groupID,-1) from people, peopleGroups, groups  where people.peopleID = peopleGroups.peopleID and groups.groupID = peopleGroups.groupID  order by people.lastname asc";
     NSString *queryGroups = @"Select * from groups";
     
     _arrPeople = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:queryPeople]];
     _arrGroups = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:queryGroups]];
-    NSLog(@"BACK"  );
+    NSLog(@"On loading, the people array is %@",_arrPeople );
   
     [_tblViewPeople reloadData];
 
@@ -150,11 +150,13 @@
         }
 
     }
+     NSLog(@"The array people is %@",_arrPeople);
+    
     
     formattedName = [NSString stringWithFormat:@"%@ %@",firstName,lastName];
     cell.textLabel.text = formattedName;
     return cell;
-    
+   
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

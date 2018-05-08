@@ -15,6 +15,7 @@
 @property (strong, nonatomic) NSMutableArray *arrayGroups;
 
 @property NSInteger groupID;
+@property (strong, nonatomic) IBOutlet UITableView *tblViewGroups;
 
 @property BOOL editable;
 @end
