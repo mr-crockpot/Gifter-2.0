@@ -12,7 +12,8 @@
 
 -(NSInteger) findActivePerson: (NSInteger)section row:(NSInteger)row array:(NSMutableArray*)arrIndex{
     NSInteger activePerson = 5;
-   
+//NOTE THAT COMMIT WORKED
+    
  /*   for (int x = 0; x<arrIndex.count; x++) {
         
         if ([arrIndex[x][1] integerValue] == section && [arrIndex[x][2] integerValue] == row) {
