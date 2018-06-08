@@ -130,7 +130,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="People Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1t-w9-3oo">
-                                <rect key="frame" x="133" y="525" width="109" height="21"/>
+                                <rect key="frame" x="133" y="626" width="109" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -146,11 +146,44 @@
                                     <outlet property="delegate" destination="HUx-Ar-s4r" id="fog-eU-tLh"/>
                                 </connections>
                             </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tki-0h-YZC">
+                                <rect key="frame" x="16" y="225" width="343" height="385"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cells" id="KXb-dO-XbR">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KXb-dO-XbR" id="YG0-lc-4oG">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="HUx-Ar-s4r" id="CCr-zo-ZGq"/>
+                                    <outlet property="delegate" destination="HUx-Ar-s4r" id="mw6-mq-v3k"/>
+                                </connections>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kP0-sf-Ag0">
+                                <rect key="frame" x="63" y="156" width="248" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Gifts"/>
+                                    <segment title="Events"/>
+                                    <segment title="Details"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentPeopleDetailsSelected:" destination="HUx-Ar-s4r" eventType="valueChanged" id="UW0-wh-Bf7"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="hBu-zU-bn3"/>
                     </view>
                     <connections>
+                        <outlet property="segmentPeopleDetails" destination="kP0-sf-Ag0" id="fmo-Ju-Xes"/>
+                        <outlet property="tblViewPeopleDetails" destination="Tki-0h-YZC" id="32j-5p-lAp"/>
                         <outlet property="txtFieldFirstName" destination="3Z8-0t-6od" id="pXt-LN-hdz"/>
                         <outlet property="txtFieldLastName" destination="LVI-f6-KVX" id="IA8-28-zik"/>
                         <outletCollection property="txtFieldOutlets" destination="LVI-f6-KVX" id="DbT-WG-drG"/>
@@ -159,7 +192,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ksf-M9-woh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="316" y="1628"/>
+            <point key="canvasLocation" x="316" y="1627.7361319340332"/>
         </scene>
         <!--Gifts Details View Controller-->
         <scene sceneID="97a-W5-1fT">

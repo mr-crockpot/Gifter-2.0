@@ -50,7 +50,7 @@
     
     [_dbManager executeQuery:querySaveData];
     
-    NSLog(@"The updated group array is %@",_arrGroups);
+   
     
 }
 

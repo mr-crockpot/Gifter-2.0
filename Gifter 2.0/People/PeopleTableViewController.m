@@ -60,8 +60,7 @@
     
     _arrPeople = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:queryPeople]];
     _arrGroups = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:queryGroups]];
-    NSLog(@"On loading, the people array is %@",_arrPeople );
-  
+   
     [_tblViewPeople reloadData];
 
 }
@@ -150,7 +149,7 @@
         }
 
     }
-     NSLog(@"The array people is %@",_arrPeople);
+    
     
     
     formattedName = [NSString stringWithFormat:@"%@ %@",firstName,lastName];

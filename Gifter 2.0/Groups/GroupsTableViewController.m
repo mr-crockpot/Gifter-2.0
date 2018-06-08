@@ -83,7 +83,7 @@
     NSString *queryLoadGroups = @"SELECT * FROM groups";
     _arrayGroups = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:queryLoadGroups]];
     
-    NSLog(@"The array groups is %@",_arrayGroups);
+  
     [_tblViewGroups reloadData];
     
 }

@@ -201,14 +201,14 @@
     _hasDate = !_hasDate;
     
     if (_hasDate == YES) {
-        NSLog(@"Has date");
+        
         _lblDate.textColor = [UIColor redColor];
         _lblNoDate.textColor = [UIColor grayColor];
         _pickerViewCustomDate.hidden = NO;
         
     }
     else {
-        NSLog(@"No date");
+        
         _lblNoDate.textColor = [UIColor redColor];
         _lblDate.textColor = [UIColor grayColor];
         _pickerViewCustomDate.hidden = YES;

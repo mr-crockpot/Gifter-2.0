@@ -15,7 +15,7 @@
 @implementation PeopleDetailsViewController
 
 - (void)viewDidLoad {
-    
+    _arrSectionData = [[NSMutableArray alloc] init];
     _dbManager = [[DBManager alloc] initWithDatabaseFilename:@"gifterDB.db"];
     
     [super viewDidLoad];
@@ -39,6 +39,7 @@
     [self saveData];
 }
 -(void)loadData{
+    NSMutableArray *arrInsertLine;
     NSString *queryPerson;
     if (_activePerson != -1) {
 
@@ -47,6 +48,32 @@
     _txtFieldFirstName.text = _arrPeopleDetails[0][1];
     _txtFieldLastName.text = _arrPeopleDetails [0][2];
     }
+    
+    NSString *queryAllGifts =[NSString stringWithFormat:@"select gifts.giftID, gifts.giftname, ifnull(peopleGifts.eventID,-1) from gifts left join peopleGifts on gifts.giftID = peopleGifts.giftID and peopleGifts.peopleID = %li",_activePerson];
+    _arrAllGifts = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:queryAllGifts]];
+    
+    
+    if (_arrAllGifts.count == 0) {
+        [_arrAllGifts addObject:@"No gifts"];
+    }
+    
+    NSString *queryPeopleGifts = [NSString stringWithFormat:@"select gifts.giftID, gifts.giftname, ifnull(peopleGifts.eventID,-1) from gifts join peopleGifts on gifts.giftID = peopleGifts.giftID and peopleGifts.peopleID = %li",_activePerson];
+    _arrPeopleGifts = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:queryPeopleGifts]];
+    if (_arrPeopleGifts.count == 0) {
+        [_arrPeopleGifts addObject:@"No gifts"];
+    }
+    
+    NSString *queryEvents = [NSString stringWithFormat:@"select events.eventID, events.eventName, ifnull(events.month,-1),ifnull(events.day,-1),ifnull(events.year,-1) from events join peopleEvents on events.eventID = peopleEvents.eventID  and peopleEvents.peopleID = %li",_activePerson];
+    _arrEvents = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:queryEvents]];
+    arrInsertLine = [[NSMutableArray alloc] initWithObjects:@-1,@"Unassigned Gifts",@-1,@-1,@-1,nil];
+    [_arrEvents addObject:arrInsertLine];
+    
+    if (_arrEvents.count == 0) {
+        arrInsertLine = [[NSMutableArray alloc] initWithObjects:@"Zero",@"No Assigned Events",@"Two", nil];
+        [_arrEvents addObject:arrInsertLine];
+    }
+    
+   
 
 }
 
@@ -87,4 +114,54 @@
     
 #pragma mark END TEST AREA
  }
+- (IBAction)segmentPeopleDetailsSelected:(id)sender {
+    
+}
+
+
+#pragma mark TABLE CODES AREA
+
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return _arrAllGifts.count;
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+   
+    return _arrEvents.count;
+}
+
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSString *sectionName;
+    NSString *eventName;
+    NSString *eventDate;
+  
+   [_arrSectionData addObject:_arrEvents[section][0]];
+  
+    eventName = _arrEvents[section][1];
+    eventDate = [NSString stringWithFormat:@"         (%@/%@/%@)",_arrEvents[section][2],_arrEvents[section][3],_arrEvents[section][3]];
+    sectionName = [NSString stringWithFormat:@"       %@ %@",eventName,eventDate];
+   // sectionName = @"Name";
+   return sectionName;
+}
+
+- (UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+      UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cells" forIndexPath:indexPath];
+        NSString *title;
+         NSInteger sectionData =  [_arrSectionData[indexPath.section]integerValue];
+         NSInteger giftData = [_arrAllGifts[indexPath.row][2]integerValue];
+    
+    if (sectionData==giftData) {
+        NSLog(@"We have a match %li %li",sectionData,giftData);
+        title = _arrAllGifts[indexPath.row][1];
+    }
+    
+    else {
+        title = @"blank";
+    }
+    
+    cell.textLabel.text = title;
+    return cell;
+}
+
 @end
